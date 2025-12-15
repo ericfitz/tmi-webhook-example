@@ -2,6 +2,8 @@
 
 A simple AWS Lambda function that serves as a webhook endpoint for [TMI (Threat Model Intelligence)](https://github.com/ericfitz/tmi) integration.
 
+You can use this project as a template to build webhook integrations and addons for TMI.
+
 ## Features
 
 - ✅ Responds to TMI webhook challenge requests for endpoint verification
