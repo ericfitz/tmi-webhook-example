@@ -291,13 +291,16 @@ WARNING Invalid webhook signature for delivery 123e4567-...
 ```
 tmi-webhook-example/
 ├── lambda_function.py   # Main Lambda handler
+├── test_lambda.py      # Test suite
 ├── requirements.txt     # Python dependencies (none for this example)
-└── README.md           # This file
+├── README.md           # This file
+├── LICENSE             # Apache 2.0 license
+└── .gitignore         # Git ignore patterns
 ```
 
 ## License
 
-This is example code provided as-is for demonstration purposes.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
 ## References
 
