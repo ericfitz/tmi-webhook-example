@@ -23,7 +23,7 @@ def verify_webhook_signature(payload: str, signature: str, secret: str) -> bool:
 
     Args:
         payload: The raw request body as a string
-        signature: The signature from the X-Webhook-Signature header
+        signature: The signature from the X-Webhook-Signature header (format: sha256=<hex>)
         secret: The HMAC secret key
 
     Returns:
@@ -33,10 +33,17 @@ def verify_webhook_signature(payload: str, signature: str, secret: str) -> bool:
         return False
 
     try:
+        # TMI sends signature in format "sha256=<hex_digest>"
+        # Strip the "sha256=" prefix if present
+        if signature.startswith("sha256="):
+            signature_hex = signature[7:]  # Remove "sha256=" prefix
+        else:
+            signature_hex = signature
+
         expected_signature = hmac.new(
             secret.encode("utf-8"), payload.encode("utf-8"), hashlib.sha256
         ).hexdigest()
-        return hmac.compare_digest(signature, expected_signature)
+        return hmac.compare_digest(signature_hex, expected_signature)
     except Exception as e:
         logger.error(f"Error verifying signature: {e}")
         return False
