@@ -10,7 +10,7 @@ import logging
 import os
 import hmac
 import hashlib
-from typing import Dict, Any, Optional
+from typing import Dict, Any
 
 # Configure logging for CloudWatch
 logger = logging.getLogger()
@@ -109,7 +109,9 @@ def lambda_handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         )
 
         signature_valid = verify_webhook_signature(body, webhook_signature, hmac_secret)
-        logger.info(f"Signature verification: {'PASSED' if signature_valid else 'FAILED'}")
+        logger.info(
+            f"Signature verification: {'PASSED' if signature_valid else 'FAILED'}"
+        )
 
         if not signature_valid:
             logger.warning(
