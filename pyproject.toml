@@ -1,0 +1,28 @@
+[project]
+name = "tmi-webhook-example"
+version = "1.0.0"
+description = "AWS Lambda webhook endpoint for TMI (Threat Model Intelligence) integration"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Eric Fitzgerald", email = "github@efitz.net" },
+]
+keywords = ["aws", "lambda", "webhook", "tmi", "threat-model", "hmac"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Security",
+]
+
+# This Lambda function uses only the Python standard library.
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/ericfitz/tmi-webhook-example"
+Repository = "https://github.com/ericfitz/tmi-webhook-example"
+"TMI Project" = "https://github.com/ericfitz/tmi"
